@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleach (Unnoficial)</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        header, div.header {
+            display: flex;
+        }
+
+        img#hollowhead {
+            position: absolute; 
+            right: 0;
+            animation: alpha 10s both infinite alternate;
+        }
+
+        @keyframes alpha {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        main {
+            margin: auto;
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+
+            font-size: 3em;
+        }
+
+        main > progress {
+            width: 95%;
+        }
+
+        #game-layout {
+            width: 80%; 
+            height: 500px;
+            margin: 0 auto;
+            position: relative;
+            
+            background-color: gray; 
+            background-repeat: no-repeat;
+            background-image: url("data:image/jpeg;base64,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");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #player {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            width: 50px;
+            height: 100px;
+        }
+
+        #player-buttons {
+            position: absolute;
+            bottom: 50%;
+            left: -10%;
+        }
+
+        #player-buttons button {
+            width: 100px;
+            height: 50px;
+            font-size: 0.5em;
+        }
+
+        .hollow {
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            width: 50px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1>Hollows Estão Soltos !!!</h1>
+        </div>
+
+        <img id="hollowhead" src="images/hollow_head.png" alt="hollow">
+    </header>
+
+    <main>
+        <h2>Derrote os Hollows</h2>
+
+        <div id="game-layout">
+            <img id="player" src="images/sprites/ichigo.png" alt="prota">
+
+            <div id="player-buttons">
+                <button id="player-button-jump">Pular</button>
+
+                <div>
+                    <button id="player-button-left">Esquerda</button>
+                    <button id="player-button-right">Direita</button>
+                </div>
+
+                <button id="player-button-attack">Atacar</button>
+            </div>
+        </div>
+
+        <label for="bankai_progress">Energia Espiritual</label>
+        <progress id="bankai_progress" value="100" max="100"></progress>
+    </main>
+
+    <footer></footer>
+</body>
+</html>
+
+<script>
+    const playerElement = document.getElementById("player"),
+        bankaiProgressElement = document.getElementById("bankai_progress");
+
+    let animateIndex = 3, 
+        sleep = Date.now() / 1000,
+        playerPos = playerElement.offsetLeft;
+
+    function animate(direction, type = "andar") {
+        sleep = Date.now() / 1000;
+
+        if (type == "andar") {
+            playerElement.src = `images/sprites/andando/${direction}/${animateIndex}.png`;
+            
+            if (playerPos < 0)
+                playerPos = 0;
+    
+            if (playerPos > window.innerWidth * 0.77)
+                playerPos = window.innerWidth * 0.77;
+            
+            playerElement.style.left = `${playerPos}px`;
+    
+            if (animateIndex == 0)
+                animateIndex = 3;
+    
+            animateIndex --;
+            return;
+        }
+
+        if (type == "attack" && animateIndex + 1 < 5) {
+            playerElement.src = `images/sprites/attack/${animateIndex}.png`;
+            animateIndex ++;
+            return;
+        }
+    }
+
+    function stopAnimation() {
+        animateIndex = 3;
+        playerElement.src = "images/sprites/ichigo.png";
+    }
+
+    function move(event) {
+        if (event.keyCode == 32) {
+            const img = document.createElement("img");
+            img.src = "images/sprites/jump/fumaça.png";
+            img.style.position = 'absolute';
+            img.style.left = `${playerPos-20}px`;
+            img.style.bottom = '0px';
+            img.style.width = '100px';
+            img.style.height = '25px';
+            img.style.animation = "alpha 500ms both reverse";
+
+            document.getElementById("game-layout").appendChild(img);
+            setTimeout(() => document.getElementById("game-layout").removeChild(img), 500);
+            return;
+        }
+        
+        if (Date.now() / 1000 - sleep < 0.1)
+            return;
+        
+        if (["d", "ArrowRight"].includes(event.key)) {
+            playerPos += 20;
+            return animate("right");
+        }
+
+        if (["a", "ArrowLeft"].includes(event.key)) {
+            playerPos -= 20;
+            return animate("left");
+        }
+
+        stopAnimation();
+    }
+
+    setInterval(() => {
+        if (Date.now() / 1000 - sleep > 0.5)
+            stopAnimation();
+    }, 500);
+
+    let pressing = false, energyCS = 1;
+
+    document.addEventListener("keydown", move);
+    document.getElementById("player-button-attack").addEventListener("click", () => {
+        animateIndex = 1;
+
+        const timer = setInterval(() => {
+            if (Date.now() / 1000 - sleep < 0.1)
+                return;
+
+            animate("", "attack");
+
+            if (animateIndex == 4) {
+                clearInterval(timer);
+                stopAnimation();
+            }
+        }, 10);
+
+        bankaiProgressElement.setAttribute("value", String(+bankaiProgressElement.getAttribute("value") - 1));
+        energyCS ++;
+
+        setTimeout(() => {
+            energyCS --;
+            bankaiProgressElement.setAttribute("value", String(+bankaiProgressElement.getAttribute("value") + 1));
+        }, 1_000 * energyCS);
+    });
+
+    document.getElementById("player-button-right").addEventListener("mousedown", () => {
+        pressing = true;
+
+        const timer = setInterval(() => {
+            if (!pressing)
+                return clearInterval(timer);
+
+            move({ key: "d" });
+        }, 10);
+    });
+
+    document.getElementById("player-button-left").addEventListener("mousedown", () => {
+        pressing = true;
+
+        const timer = setInterval(() => {
+            if (!pressing)
+                return clearInterval(timer);
+
+            move({ key: "a" });
+        }, 10);
+    });
+
+    document.getElementById("player-button-right").addEventListener("mouseup", () => pressing = false);
+    document.getElementById("player-button-left").addEventListener("mouseup", () => pressing = false);
+</script>
